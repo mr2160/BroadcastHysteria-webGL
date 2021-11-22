@@ -119,7 +119,7 @@ Camera.defaults = {
     far              : 100,
     velocity         : [0, 0, 0],
     mouseSensitivity : 0.002,
-    maxSpeed         : 3,
+    maxSpeed         : 6,
     friction         : 0.2,
     acceleration     : 20
 };
