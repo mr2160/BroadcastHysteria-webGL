@@ -27,57 +27,40 @@
     {
       "ime": "miza",
       "type": "model",
+      "mType": "grabable",
       "mesh": 0,
       "texture": 1,
       "aabb": {
         "min": [-1, -0.4, -2],
         "max": [1, 0.4, 2]
       },
-      "translation": [-7, 1, 2],
+      "translation": [0, 1, -3],
       "rotation": [0, 0, 0],
       "scale": [1, 0.4, 2]
     },
     {
-      "ime": "škatla",
+      "ime": "miza2",
       "type": "model",
+      "mType": "grabable",
       "mesh": 0,
       "texture": 1,
       "aabb": {
-        "min": [-1, -1, -1],
-        "max": [1, 1, 1]
+        "min": [-1, -0.4, -2],
+        "max": [1, 0.4, 2]
       },
-      "translation": [0, 1, -3]
-    },
-    {
-      "type": "model",
-      "mesh": 1,
-      "texture": 1,
-      "aabb": {
-        "min": [-0.5, -0.5, -0.5],
-        "max": [0.5, 0.5, 0.5]
-      },
-      "translation": [0, 1, -5]
-    },
-    {
-      "type": "model",
-      "mesh": 0,
-      "texture": 0,
-      "aabb": {
-        "min": [-1, -0.1, -1],
-        "max": [1, 0.1, 1]
-      },
-      "translation": [3, 0.1, -1],
-      "rotation": [0, 1, 0],
-      "scale": [1, 0.1, 1]
+      "translation": [3, 1, -3],
+      "rotation": [0, 0, 0],
+      "scale": [1, 0.4, 2]
     },
     { 
       "ime": "tla",
       "type": "model",
+      "mType": "scene",
       "mesh": 0,
       "texture": 3,
       "aabb": {
-        "min": [-1, -1, -0.1],
-        "max": [1, 1, 0.1]
+        "min": [-10, -0.1, -8],
+        "max": [10, 0.1, 0]
       },
       "translation": [0, 0, 0],
       "rotation": [0, 0, 0],
@@ -86,11 +69,12 @@
     { 
       "ime": "strop",
       "type": "model",
+      "mType": "scene",
       "mesh": 0,
       "texture": 0,
       "aabb": {
-        "min": [-1, -1, -0.1],
-        "max": [1, 1, 0.1]
+        "min": [-10, -0.1, -8],
+        "max": [10, 0.1, 8]
       },
       "translation": [0, 4, 0],
       "rotation": [0, 0, 0],
@@ -99,6 +83,7 @@
     { 
       "ime": "stena nazaj",
       "type": "model",
+      "mType": "scene",
       "mesh": 0,
       "texture": 0,
       "aabb": {
@@ -112,6 +97,7 @@
     { 
       "ime": "stena naprej",
       "type": "model",
+      "mType": "scene",
       "mesh": 0,
       "texture": 0,
       "aabb": {
@@ -125,6 +111,7 @@
     { 
       "ime": "stena mešalka",
       "type": "model",
+      "mType": "scene",
       "mesh": 0,
       "texture": 0,
       "aabb": {
@@ -138,6 +125,7 @@
     { 
       "ime": "stena pri studiu",
       "type": "model",
+      "mType": "scene",
       "mesh": 0,
       "texture": 0,
       "aabb": {
@@ -147,19 +135,6 @@
       "translation": [-10, 4, 0],
       "rotation": [0, 0, 0],
       "scale": [0.1, 4, 8]
-    },
-    { 
-      "ime": "green screen",
-      "type": "model",
-      "mesh": 0,
-      "texture": 5,
-      "aabb": {
-        "min": [-0.1, -4, -10],
-        "max": [0.1, 4, 10]
-      },
-      "translation": [-9.5, 3, 0],
-      "rotation": [0, 0, 0],
-      "scale": [0.1, 3, 7]
     }
   ],
   "textures": [

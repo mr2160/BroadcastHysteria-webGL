@@ -12,4 +12,8 @@ export class Scene {
         this.nodes.forEach(node => node.traverse(before, after));
     }
 
+    removeNode(node) {
+        this.nodes.pop(node)
+    }
+
 }

@@ -36,7 +36,7 @@ export class Renderer {
 
     render(scene, camera) {
         const gl = this.gl;
-
+        
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
         const program = this.programs.simple;
@@ -44,17 +44,21 @@ export class Renderer {
 
         let matrix = mat4.create();
         let matrixStack = [];
-
-        const viewMatrix = camera.getGlobalTransform();
+        
+        
+        const viewMatrix = mat4.clone(camera.getGlobalTransform());
+        
         mat4.invert(viewMatrix, viewMatrix);
         mat4.copy(matrix, viewMatrix);
         gl.uniformMatrix4fv(program.uniforms.uProjection, false, camera.projection);
 
         scene.traverse(
             node => {
+                
                 matrixStack.push(mat4.clone(matrix));
                 mat4.mul(matrix, matrix, node.transform);
-                if (node.gl.vao) {
+                
+                if (node.gl.vao && node.rendered) {
                     gl.bindVertexArray(node.gl.vao);
                     gl.uniformMatrix4fv(program.uniforms.uViewModel, false, matrix);
                     gl.activeTexture(gl.TEXTURE0);
