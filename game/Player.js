@@ -33,7 +33,6 @@ export class Player extends Node {
         this.scene.nodes.forEach(node => {
             
             if(node instanceof Model && node.mType == "grabable"){
-                console.log(node)
                 let t = vec3.clone(this.translation)
                 let n = vec3.clone(node.translation);
                 let dist = vec3.distance(t, n);
@@ -50,10 +49,11 @@ export class Player extends Node {
     }
 
     letgo(){
-        if(this.heldObject){
-            this.heldObject.rendered = true;
-            this.heldObject = null;    
+        if(!this.heldObject){
+            return    
         }
+        this.heldObject.rendered = true;
+        this.heldObject = null;
     }
 
     

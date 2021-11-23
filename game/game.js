@@ -23,7 +23,7 @@ class App extends Application {
         this.pointerlockchangeHandler = this.pointerlockchangeHandler.bind(this);
         document.addEventListener('pointerlockchange', this.pointerlockchangeHandler);
 
-        this.load('sceneTest.json');
+        this.load('scene.json');
     }
 
     async load(uri) {
