@@ -16,8 +16,8 @@
       "type": "camera",
       "translation": [0, 1, 0],
       "aabb": {
-        "min": [0, 0, 0],
-        "max": [0, 0, 0]
+        "min": [-0.2, -0.2, -0.2],
+        "max": [0.2, 0.2, 0.2]
       },
       "aspect": 1,
       "fov": 1.5,
@@ -28,47 +28,79 @@
       "ime": "miza",
       "type": "model",
       "mesh": 0,
-      "texture": 1,
+      "texture": 6,
+      "aabb": {
+        "min": [-1, -5, -2],
+        "max": [1, 5, 2]
+      },
+      "translation": [-7, 1, 2],
+      "rotation": [0, 0, 0],
+      "scale": [1, 0.05, 2]
+    },
+    {
+      "ime": "miza_noga",
+      "type": "model",
+      "mesh": 0,
+      "texture": 4,
       "aabb": {
         "min": [-1, -0.4, -2],
         "max": [1, 0.4, 2]
       },
-      "translation": [-7, 1, 2],
+      "translation": [-7, 0, 2],
       "rotation": [0, 0, 0],
-      "scale": [1, 0.4, 2]
+      "scale": [0.3, 1, 0.5]
     },
     {
-      "ime": "škatla",
+      "ime": "stol",
       "type": "model",
       "mesh": 0,
-      "texture": 1,
+      "texture": 7,
       "aabb": {
-        "min": [-1, -1, -1],
-        "max": [1, 1, 1]
+        "min": [-0.3,   -7, -0.25],
+        "max": [0.3, 7, 0.25]
       },
-      "translation": [0, 1, -3]
+      "translation": [-8.5, 0, 3.2],
+      "rotation": [0, 0, 0],
+      "scale": [0.3, 0.7, 0.25]
     },
     {
-      "type": "model",
-      "mesh": 1,
-      "texture": 1,
-      "aabb": {
-        "min": [-0.5, -0.5, -0.5],
-        "max": [0.5, 0.5, 0.5]
-      },
-      "translation": [0, 1, -5]
-    },
-    {
+      "ime": "stol_naslonjalo",
       "type": "model",
       "mesh": 0,
-      "texture": 0,
+      "texture": 8,
       "aabb": {
-        "min": [-1, -0.1, -1],
-        "max": [1, 0.1, 1]
+        "min": [-0.3,   -7, -0.25],
+        "max": [0.3, 7, 0.25]
       },
-      "translation": [3, 0.1, -1],
-      "rotation": [0, 1, 0],
-      "scale": [1, 0.1, 1]
+      "translation": [-8.825, 0, 3.2],
+      "rotation": [0, 0, 0],
+      "scale": [0.03, 1.5, 0.25]
+    },
+    {
+      "ime": "stol",
+      "type": "model",
+      "mesh": 0,
+      "texture": 7,
+      "aabb": {
+        "min": [-0.3,   -7, -0.25],
+        "max": [0.3, 7, 0.25]
+      },
+      "translation": [-8.5, 0, 0.8],
+      "rotation": [0, 0, 0],
+      "scale": [0.3, 0.7, 0.25]
+    },
+    {
+      "ime": "stol_naslonjalo",
+      "type": "model",
+      "mesh": 0,
+      "texture": 8,
+      "aabb": {
+        "min": [-0.3,   -7, -0.25],
+        "max": [0.3, 7, 0.25]
+      },
+      "translation": [-8.825, 0, 0.8],
+      "rotation": [0, 0, 0],
+      "scale": [0.03, 1.5, 0.25]
     },
     { 
       "ime": "tla",
@@ -83,11 +115,12 @@
       "rotation": [0, 0, 0],
       "scale": [10, 0.1, 8]
     },
+    
     { 
       "ime": "strop",
       "type": "model",
       "mesh": 0,
-      "texture": 0,
+      "texture": 6,
       "aabb": {
         "min": [-1, -1, -0.1],
         "max": [1, 1, 0.1]
@@ -136,6 +169,45 @@
       "scale": [0.1, 4, 8]
     },
     { 
+      "ime": "stena pregradna_pocez",
+      "type": "model",
+      "mesh": 0,
+      "texture": 0,
+      "aabb": {
+        "min": [-0.1, 0, -10],
+        "max": [0.1, 0, 10]
+      },
+      "translation": [4, 4, 0],
+      "rotation": [0, 0, 0],
+      "scale": [0.1, 2, 8]
+    },
+    { 
+      "ime": "stena pregradna",
+      "type": "model",
+      "mesh": 0,
+      "texture": 0,
+      "aabb": {
+        "min": [-0.1, -2, -4.4],
+        "max": [0.1, 2, 4.4]
+      },
+      "translation": [4, 0, 5],
+      "rotation": [0, 0, 0],
+      "scale": [0.1, 2, 4.4]
+    },
+    { 
+      "ime": "stena pregradna",
+      "type": "model",
+      "mesh": 0,
+      "texture": 0,
+      "aabb": {
+        "min": [-0.1, -2, -4.4],
+        "max": [0.1, 2, 4.4]
+      },
+      "translation": [4, 0, -5],
+      "rotation": [0, 0, 0],
+      "scale": [0.1, 2, 4.4]
+    },
+    { 
       "ime": "stena pri studiu",
       "type": "model",
       "mesh": 0,
@@ -163,12 +235,15 @@
     }
   ],
   "textures": [
-    "../../common/images/filc.png",
+    "../../common/images/filc.png",  
     "../../common/images/crate-diffuse.png",
     "../../common/images/grass.png",
     "../../common/images/grid.png",
     "../../common/images/strop.png",
-    "../../common/images/green.png"
+    "../../common/images/green.jpg",
+    "../../common/images/siva.png",
+    "../../common/images/stol.png",
+    "../../common/images/stol_naslonjalo.png"
     
   ],
   "meshes": [
