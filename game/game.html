@@ -1,36 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Broadcast Hysteria</title>
 
     <link rel="stylesheet" type="text/css" href="../common/styles/styles.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@1&display=swap" rel="stylesheet">
     <script type="text/javascript" src="../lib/gl-matrix-min.js"></script>
     <script type="text/javascript" src="../lib/dat.gui.min.js"></script>
     <script type="module" src="game.js"></script>
 </head>
-<body>
+<body onload="poslusaj(); score();  gamePlay()" onclick="countdown();">
 
-    <ul id="messages" class="chat-messages">
+    <!-- Display the countdown timer in an element -->
+    <p id="demo"></p>
 
-    </ul>
-
+    <div id="score" class="score">SCORE: </div>
+    <button onclick="randTask()">click me</button>
 
     <div id="overlay"></div>
-
     <div class="fullscreen">
         <canvas></canvas>
     </div>
     <div class="modal" id="modal">
         <div class="modal-header">
-            <div class="title">ALERTA!</div>
+            <div class="title">THINGS TO DO BEFORE WE START</div>
         </div>
         <div class="modal-body">
-            Lorem ipsum dolor sit amet consectetur cto, dolorligendi, eius libero. Ex, repellat sapiente!
+            <ul id="tasks" class="chat-messages">
+                <li class="task">KAMERA (c) <img id="ena"  src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"> </li>
+                <li  class="task">LIGHTS (l) <img id="dva" src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"></li>
+                <li  class="task">REZIJA (r) <img id="tri" src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"></li>
+                <li  class="task">KABLI (k)<img id="stiri" src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"></li>
+                <li class="task">GREEN SCREEN (g) <img id="pet"  src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal" id="modal2">
+        <div class="modal-header">
+            <div class="title" id="title">POZOR!</div>
+        </div>
+        <div class="modal-body">
+            <ul id="tasks2" class="chat-messages">
+
+            </ul>
         </div>
     </div>
 
+
+    <script src="potek_igre.js"></script>
+
+
 </body>
 </html>
-<script src="../common/javascript/main.js"></script>
+
+
 
