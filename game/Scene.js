@@ -5,7 +5,9 @@ export class Scene {
     }
 
     addNode(node) {
-        this.nodes.push(node);
+        if(node){
+            this.nodes.push(node);
+        }
     }
 
     traverse(before, after) {

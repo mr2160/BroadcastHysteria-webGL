@@ -9,6 +9,7 @@ import { SceneLoader } from './SceneLoader.js';
 import { SceneBuilder } from './SceneBuilder.js';
 import { Player } from './Player.js';
 import { Model } from './Model.js';
+import { Stand } from './Stand.js';
 
 class App extends Application {
 
@@ -23,7 +24,7 @@ class App extends Application {
         this.pointerlockchangeHandler = this.pointerlockchangeHandler.bind(this);
         document.addEventListener('pointerlockchange', this.pointerlockchangeHandler);
 
-        this.load('scene.json');
+        this.load('sceneTest.json');
     }
 
     async load(uri) {
@@ -47,6 +48,15 @@ class App extends Application {
                 this.player.addCamera(node);
             }
         });
+
+        this.stand = null;
+        this.scene.traverse(node => {
+            if (node instanceof Stand) {
+                this.stand = node;
+            }
+        });
+
+        //this.stand.placeObject(this.scene.nodes[2])
         
 
         this.player.camera.aspect = this.aspect;

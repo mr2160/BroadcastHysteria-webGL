@@ -6,6 +6,7 @@ import { Camera } from './Camera.js';
 
 import { Scene } from './Scene.js';
 import { Player } from './Player.js';
+import { Stand } from './Stand.js';
 
 export class SceneBuilder {
 
@@ -26,9 +27,23 @@ export class SceneBuilder {
         }
     }
 
+    createStands(spec, scene){
+        if(spec.type == "stand"){
+            const mesh = new Mesh(this.spec.meshes[spec.mesh]);
+            const texture = this.spec.textures[spec.texture];
+            let stand = new Stand(mesh, texture, spec);
+            if(!spec.placedObject){
+                return stand
+            }
+            stand.placeObject(scene.nodes[spec.placedObject]);
+            return stand
+        }
+    }
+
     build() {
         let scene = new Scene();
         this.spec.nodes.forEach(spec => scene.addNode(this.createNode(spec)));
+        this.spec.nodes.forEach(spec => scene.addNode(this.createStands(spec, scene)));
         return scene;
     }
 

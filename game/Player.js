@@ -4,6 +4,7 @@ import { Utils } from './Utils.js';
 import { Node } from './Node.js';
 import { Scene } from './Scene.js';
 import { Model } from './Model.js';
+import { Stand } from './Stand.js';
 
 export class Player extends Node {
 
@@ -32,7 +33,7 @@ export class Player extends Node {
         let minObject = null
         this.scene.nodes.forEach(node => {
             
-            if(node instanceof Model && node.mType == "grabable"){
+            if(node instanceof Stand){
                 let t = vec3.clone(this.translation)
                 let n = vec3.clone(node.translation);
                 let dist = vec3.distance(t, n);
@@ -43,8 +44,8 @@ export class Player extends Node {
             }
         });
         if(minObject && minDist < 4){
-            minObject.rendered = false;
-            this.heldObject = minObject;
+            this.heldObject = minObject.pickUp(this.heldObject);
+            minObject.setPlacedObject(null);
         }
     }
 
@@ -52,8 +53,24 @@ export class Player extends Node {
         if(!this.heldObject){
             return    
         }
-        this.heldObject.rendered = true;
-        this.heldObject = null;
+
+        let minDist = 1000
+        let minObject = null
+        this.scene.nodes.forEach(node => {
+            if(node instanceof Stand){
+                let t = vec3.clone(this.translation)
+                let n = vec3.clone(node.translation);
+                let dist = vec3.distance(t, n);
+                if(minDist >= dist){
+                    minDist = dist;
+                    minObject = node;
+                }
+            }
+        });
+        if(minObject && minDist < 4){
+            minObject.placeObject(this.heldObject);
+            this.heldObject = null;
+        }       
     }
 
     
