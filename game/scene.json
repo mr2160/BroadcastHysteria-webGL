@@ -51,7 +51,7 @@
       "scale": [0.3, 1, 0.5]
     },
     {
-      "ime": "mikrofon podstavek",
+      "ime": "mikrofon 1 podstavek",
       "type": "model",
       "mesh": 0,
       "texture": 9,
@@ -65,7 +65,10 @@
     },
     {
       "ime": "mikrofon 1 spodnji del",
-      "type": "model",
+      "type": "stand",
+      "relChildRot": [0, 0, -2],
+      "relChildTrans": [0, 0.25, 0], 
+      "placedObject": 6,
       "mesh": 0,
       "texture": 9,
       "aabb": {
@@ -90,7 +93,7 @@
       "scale": [0.02, 0.25, 0.02]
     },
     {
-      "ime": "mikrofon podstavek",
+      "ime": "mikrofon 2 podstavek",
       "type": "model",
       "mesh": 0,
       "texture": 9,
@@ -104,7 +107,10 @@
     },
     {
       "ime": "mikrofon 2 spodnji del",
-      "type": "model",
+      "type": "stand",
+      "relChildRot": [0, 0, -2],
+      "relChildTrans": [0, 0.25, 0], 
+      "placedObject": 9,
       "mesh": 0,
       "texture": 9,
       "aabb": {
@@ -379,7 +385,10 @@
     },
     {
     "ime": "kamera_podstavek",
-      "type": "model",
+      "type": "stand",
+      "relChildRot": [0, 0, 0],
+      "relChildTrans": [0, 0.05, 0], 
+      "placedObject": 30,
       "mesh": 0,
       "texture": 4,
       "aabb": {
@@ -445,7 +454,10 @@
     },
     {
     "ime": "kamera_podstavek",
-      "type": "model",
+      "type": "stand",
+      "relChildRot": [0, 0, 0],
+      "relChildTrans": [0, 0.05, 0], 
+      "placedObject": 35,
       "mesh": 0,
       "texture": 4,
       "aabb": {

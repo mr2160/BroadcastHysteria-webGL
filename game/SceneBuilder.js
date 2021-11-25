@@ -31,7 +31,9 @@ export class SceneBuilder {
         if(spec.type == "stand"){
             const mesh = new Mesh(this.spec.meshes[spec.mesh]);
             const texture = this.spec.textures[spec.texture];
-            let stand = new Stand(mesh, texture, spec);
+            const relChildRot = spec.relChildRot;
+            const relChildTrans = spec.relChildTrans;
+            let stand = new Stand(relChildTrans, relChildRot, mesh, texture, spec);
             if(!spec.placedObject){
                 return stand
             }

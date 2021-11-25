@@ -69,6 +69,8 @@
     { 
       "ime": "stativ1",
       "type": "stand",
+      "relChildRot": [0, 90, 0],
+      "relChildTrans": [0, 0.7, 0], 
       "placedObject": 2,
       "mesh": 0,
       "texture": 0,
@@ -83,6 +85,8 @@
     { 
       "ime": "stativ2",
       "type": "stand",
+      "relChildRot": [0, 50, 0],
+      "relChildTrans": [0, 0.7, 0], 
       "placedObject": 3,
       "mesh": 0,
       "texture": 0,
@@ -97,6 +101,8 @@
     { 
       "ime": "stativ3",
       "type": "stand",
+      "relChildRot": [0, 0, 0],
+      "relChildTrans": [0, 0.7, 0], 
       "placedObject": null,
       "mesh": 0,
       "texture": 0,
