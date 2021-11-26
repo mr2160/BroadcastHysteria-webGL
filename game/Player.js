@@ -5,6 +5,7 @@ import { Node } from './Node.js';
 import { Scene } from './Scene.js';
 import { Model } from './Model.js';
 import { Stand } from './Stand.js';
+import { Interactable } from './Interactable.js';
 
 export class Player extends Node {
 
@@ -15,6 +16,7 @@ export class Player extends Node {
         this.keydownHandler = this.keydownHandler.bind(this);
         this.keyupHandler = this.keyupHandler.bind(this);
         this.keys = {};
+        this.heldKey = {};
     }
 
     addScene(scene){
@@ -73,6 +75,25 @@ export class Player extends Node {
         }       
     }
 
+    interact(){
+        let minDist = 1000;
+        let minObject = null;
+        this.scene.nodes.forEach(node => {
+            if(node instanceof Interactable){
+                let t = vec3.clone(this.translation)
+                let n = vec3.clone(node.translation);
+                let dist = vec3.distance(t, n);
+                if(minDist >= dist){
+                    minDist = dist;
+                    minObject = node;
+                }
+            }
+        });
+        if(minObject && minDist < 4){
+            minObject.interact();
+        }  
+    }
+
     
     update(dt) {
         const c = this;
@@ -103,6 +124,12 @@ export class Player extends Node {
         if (this.keys['KeyQ']) {
             this.grab();
         }
+        if (this.keys['Space']) {
+            if(!this.heldKey['Space']){
+                this.interact();
+                this.heldKey['Space'] = true;
+            }
+        }
 
         // 2: update velocity
         vec3.scaleAndAdd(c.velocity, c.velocity, acc, dt * c.acceleration);
@@ -121,6 +148,10 @@ export class Player extends Node {
         if (len > c.maxSpeed) {
             vec3.scale(c.velocity, c.velocity, c.maxSpeed / len);
         }
+    }
+
+    keyPress(code, action){
+        
     }
 
     enable() {
@@ -168,6 +199,7 @@ export class Player extends Node {
 
     keyupHandler(e) {
         this.keys[e.code] = false;
+        this.heldKey[e.code] = false;
     }
     
 }

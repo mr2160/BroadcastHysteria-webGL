@@ -31,6 +31,9 @@ export class Renderer {
             if (node.image) {
                 node.gl.texture = this.createTexture(node.image);
             }
+            if (node.altImage) {
+                node.gl.altTexture = this.createTexture(node.altImage);
+            }
         });
     }
 
@@ -54,16 +57,23 @@ export class Renderer {
 
         scene.traverse(
             node => {
-                
+
                 matrixStack.push(mat4.clone(matrix));
                 mat4.mul(matrix, matrix, node.transform);
                 
                 if (node.gl.vao && node.rendered) {
                     gl.bindVertexArray(node.gl.vao);
                     gl.uniformMatrix4fv(program.uniforms.uViewModel, false, matrix);
-                    gl.activeTexture(gl.TEXTURE0);
-                    gl.bindTexture(gl.TEXTURE_2D, node.gl.texture);
-                    gl.uniform1i(program.uniforms.uTexture, 0);
+                    if(!node.alt){
+                        gl.activeTexture(gl.TEXTURE0);
+                        gl.bindTexture(gl.TEXTURE_2D, node.gl.texture);
+                        gl.uniform1i(program.uniforms.uTexture, 0);
+                    }else if(node.alt){
+                        gl.activeTexture(gl.TEXTURE0);
+                        gl.bindTexture(gl.TEXTURE_2D, node.gl.altTexture);
+                        gl.uniform1i(program.uniforms.uTexture, 0);
+                    }
+                    
                     gl.drawElements(gl.TRIANGLES, node.gl.indices, gl.UNSIGNED_SHORT, 0);
                 }
             },
