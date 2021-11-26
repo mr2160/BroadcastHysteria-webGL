@@ -82,6 +82,10 @@ body {
     width: 500px;
     max-width: 70%;
 }
+.modal2 {
+    position: fixed;
+    top: 60%;
+}
 
 .modal.active {
     transform: translate(-50%, -50%) scale(1);

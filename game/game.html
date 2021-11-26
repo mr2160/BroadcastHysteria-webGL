@@ -11,12 +11,12 @@
     <script type="text/javascript" src="../lib/dat.gui.min.js"></script>
     <script type="module" src="game.js"></script>
 </head>
-<body onload="poslusaj(); score();  gamePlay()" onclick="countdown();">
+<body onload="poslusaj(); print(); gamePlay()" onclick="countdown();">
 
     <!-- Display the countdown timer in an element -->
     <p id="demo"></p>
 
-    <div id="score" class="score">SCORE: </div>
+    <div id="score" style="display: flex" class="score">SCORE: &nbsp; <p id="num">0</p></div>
     <button onclick="randTask()">click me</button>
 
     <div id="overlay"></div>
@@ -31,13 +31,12 @@
             <ul id="tasks" class="chat-messages">
                 <li class="task">KAMERA (c) <img id="ena"  src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"> </li>
                 <li  class="task">LIGHTS (l) <img id="dva" src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"></li>
-                <li  class="task">REZIJA (r) <img id="tri" src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"></li>
-                <li  class="task">KABLI (k)<img id="stiri" src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"></li>
-                <li class="task">GREEN SCREEN (g) <img id="pet"  src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"></li>
+                <li  class="task">GREEN SCREEN (g) <img id="tri" src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"></li>
+
             </ul>
         </div>
     </div>
-    <div class="modal" id="modal2">
+    <div class="modal modal2" id="modal2">
         <div class="modal-header">
             <div class="title" id="title">POZOR!</div>
         </div>
@@ -47,10 +46,7 @@
             </ul>
         </div>
     </div>
-
-
     <script src="potek_igre.js"></script>
-
 
 </body>
 </html>

@@ -6,68 +6,30 @@ let tasks = document.getElementById("tasks2");
 let yes = true;
 
 
+
+var Player = null;
+
 var start = false;
-var predZacetkom = [false, false, false, false, false];
+var predZacetkom = [false, false, false];
 
 let task1 = document.getElementById("ena");
 let task2 = document.getElementById("dva");
 let task3 = document.getElementById("tri");
-let task4 = document.getElementById("stiri");
-let task5 = document.getElementById("pet");
+
 
 let checker = arr => arr.every(Boolean);
 
 function poslusaj() {
     openModal(modal);
-    document.addEventListener('keydown', checkKey);
+    document.addEventListener('keydown', function () {
+
+        if(checker(predZacetkom)){
+            closeModal(modal);
+        }
+    });
 
 }
 
-function checkKey(e) {
-    switch (e.key) {
-        case "k":
-            console.log(e.key);
-            task4.src = "../common/images/tick.png";
-            predZacetkom[3] = true;
-            if(checker(predZacetkom)){
-                closeModal(modal);
-            };
-            break;
-        case "c":
-            console.log(e.key);
-            task1.src = "../common/images/tick.png";
-            predZacetkom[0] = true;
-            if(checker(predZacetkom)){
-                closeModal(modal);
-            };
-            break;
-        case "l":
-            console.log(e.key);
-            task2.src = "../common/images/tick.png";
-            predZacetkom[1] = true;
-            if(checker(predZacetkom)){
-                closeModal(modal);
-            };
-            break;
-        case "r":
-            console.log(e.key);
-            task3.src = "../common/images/tick.png";
-            predZacetkom[2] = true;
-            if(checker(predZacetkom)){
-                closeModal(modal);
-            };
-            break;
-        case "g":
-            console.log(e.key);
-            task5.src = "../common/images/tick.png";
-            predZacetkom[4] = true;
-            if(checker(predZacetkom)){
-                closeModal(modal);
-            };
-            break;
-    }
-
-}
 
 
 function pinNewTask(e) {
@@ -80,21 +42,21 @@ function pinNewTask(e) {
 function randTask() {
     openModal(modal2);
 
-    var taskname = ["KAMERA","LUCKE", "REZISER",];
-    var taskDescription = ["Kamera je izgubila fokus, popravi jo!","Lucke strajkajo!!! HITRO!", "NUJNO, KONEC SVETA! REZISER BI KAVO"];
-
+    var taskname = ["KAMERA","SLIKA", "REZISER", "AUDIO"];
+    var taskDescription = ["Kamera je izgubila fokus, popravi jo!","Video mix zeza, preveri hitro!", "NUJNO, KONEC SVETA! REZISER BI KAVO", "Ohoho kolega, audio frcera, bo treba popravit"];
 
     let i = Math.floor(Math.random()*taskname.length);
     var div = document.getElementById('response');
     //console.log(taskname[i] + ": " + taskDescription[i]);
     pinNewTask(taskname[i] + ": " + taskDescription[i]);
 
-
-
 }
 
-function score() {
+function score(num) {
 
+    var score = document.getElementById("score");
+    var st = parseInt(document.getElementById("num").innerText) + parseInt(num);
+    score.innerText = "SCORE: " + st;
     return;
 }
 
@@ -112,10 +74,22 @@ function countdown() {
             demo.style.backgroundColor = "white";
             // If the count down is finished, write some text
             if (seconds < 0) {
-                clearInterval(x);
-                demo.innerHTML = "WE ARE LIVE!";
-                demo.style.backgroundColor = "red";
-                demo.style.color = "white";
+
+                if(!checker(predZacetkom)){
+                    demo.innerHTML = "GAME OVEER!";
+                    demo.style.backgroundColor = "red";
+                    demo.style.color = "white";
+                    endgame();
+                    clearInterval(x);
+                }
+                else {
+                    demo.innerHTML = "You win, congratulations!";
+                    demo.style.backgroundColor = "red";
+                    demo.style.color = "white";
+                    clearInterval(x);
+                }
+
+
 
             }
             seconds = seconds - 1;
@@ -134,12 +108,7 @@ function closeModal(modal) {
     modal.classList.remove('active')
     overlay.classList.remove('active')
 }
-overlay.addEventListener('click', () => {
-    const modals = document.querySelectorAll('.modal.active')
-    modals.forEach(modal => {
-        closeModal(modal)
-    })
-})
+
 closeModalButtons.forEach(button => {
     button.addEventListener('click', () => {
         const modal = button.closest('.modal')
@@ -149,11 +118,17 @@ closeModalButtons.forEach(button => {
 
 
 function gamePlay() {
-    const x = setInterval(randTask, 10000)
+    const x = setInterval(randTask, 15000)
 
 }
 
 
+function endgame() {
 
+    //location.reload()
+
+
+}
 //clearInterval(interval);
 //clearInterval(interval2);
+
