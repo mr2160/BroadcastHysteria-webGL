@@ -70,8 +70,9 @@ export class Player extends Node {
             }
         });
         if(minObject && minDist < 4){
-            minObject.placeObject(this.heldObject);
-            this.heldObject = null;
+            if(minObject.placeObject(this.heldObject)){
+                this.heldObject = null;
+            }
         }       
     }
 
