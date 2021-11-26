@@ -11,10 +11,13 @@
     <script type="text/javascript" src="../lib/dat.gui.min.js"></script>
     <script type="module" src="game.js"></script>
 </head>
- <body onload="poslusaj(); gamePlay()" onclick="countdown();">
-
+<body>
+    
     <!-- Display the countdown timer in an element -->
-    <p id="demo"></p>
+    <p id="demo">
+    </p>
+
+    <div id="blocker">Enable camera to start</div>    
 
     <div id="score" style="display: flex" class="score">SCORE: &nbsp; <p id="num">0</p></div>
     <button onclick="randTask()">click me</button>
@@ -32,22 +35,41 @@
                 <li class="task">KAMERA (c) <img id="ena"  src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"> </li>
                 <li  class="task">LIGHTS (l) <img id="dva" src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"></li>
                 <li  class="task">GREEN SCREEN (g) <img id="tri" src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"></li>
+    
+    <button>click me</button>
 
-            </ul>
+    <div class="fullscreen">
+        <canvas></canvas>
+    </div>
+
+
+
+    <div id="grafika" style="display: none">
+        <div id="score" style="display: flex" class="score">SCORE: &nbsp; <p id="num">0</p></div> 
+        <div class="modal active" id="modal">
+            <div class="modal-header">
+                <div class="title">THINGS TO DO BEFORE WE START</div>
+            </div>
+            <div class="modal-body">
+                <ul id="tasks" class="chat-messages">
+                    <li class="task">KAMERA (c) <img id="ena"  src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"> </li>
+                    <li  class="task">LIGHTS (l) <img id="dva" src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"></li>
+                    <li  class="task">GREEN SCREEN (g) <img id="tri" src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="modal modal2" id="modal2">
+            <div class="modal-header">
+                <div class="title" id="title">POZOR!</div>
+            </div>
+            <div class="modal-body">
+                <ul id="tasks2" class="chat-messages">
+
+                </ul>
+            </div>
         </div>
     </div>
-    <div class="modal modal2" id="modal2">
-        <div class="modal-header">
-            <div class="title" id="title">POZOR!</div>
-        </div>
-        <div class="modal-body">
-            <ul id="tasks2" class="chat-messages">
-
-            </ul>
-        </div>
-    </div> 
-    <script src="potek_igre.js"></script>
-
 </body>
 </html>
 

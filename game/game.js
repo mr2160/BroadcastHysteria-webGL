@@ -10,6 +10,7 @@ import { SceneBuilder } from './SceneBuilder.js';
 import { Player } from './Player.js';
 import { Model } from './Model.js';
 import { Stand } from './Stand.js';
+import { PotekIgre } from './PotekIgre.js';
 
 class App extends Application {
 
@@ -25,6 +26,7 @@ class App extends Application {
         document.addEventListener('pointerlockchange', this.pointerlockchangeHandler);
 
         this.load('scene.json');
+        this.potekIgre = new PotekIgre();
     }
 
     async load(uri) {
@@ -69,7 +71,7 @@ class App extends Application {
     }
 
     pointerlockchangeHandler() {
-        if (!this.player) {
+        if (!this.player || !this.potekIgre.playing) {
             return;
         }
 
@@ -81,6 +83,7 @@ class App extends Application {
     }
 
     update() {
+
         const t = this.time = Date.now();
         const dt = (this.time - this.startTime) * 0.001;
         this.startTime = this.time;
@@ -91,6 +94,10 @@ class App extends Application {
 
         if (this.physics) {
             this.physics.update(dt);
+        }
+
+        if(this.potekIgre){
+            this.potekIgre.update(dt);
         }
     }
 
