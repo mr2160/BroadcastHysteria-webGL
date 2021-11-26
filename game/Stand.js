@@ -15,7 +15,7 @@ export class Stand extends Node {
 
     placeObject(object){
         if(this.placedObject){
-            return
+            return null;
         }
         let translation = vec3.clone(this.translation);
         translation = vec3.add(translation, translation, this.relChildTrans);
@@ -26,6 +26,7 @@ export class Stand extends Node {
         object.updateTransform();
         object.rendered = true;
         this.placedObject = object;
+        return true;
     }
 
     pickUp(object){
