@@ -2,7 +2,7 @@
   "nodes": [
     {
       "type": "player",
-      "translation": [0, 0.7, 0],
+      "translation": [-2, 0.9, 0],
       "aabb": {
         "min": [-0.2, -1, -0.2],
         "max": [0.2, 1, 0.2]
@@ -15,6 +15,7 @@
     {
       "type": "camera",
       "translation": [0, 1, 0],
+      "rotation": [0, 1, 0],
       "aabb": {
         "min": [0, 0, 0],
         "max": [0, 0, 0]
@@ -68,7 +69,7 @@
       "type": "stand",
       "relChildRot": [0, 0, -2],
       "relChildTrans": [0, 0.25, 0], 
-      "placedObject": 6,
+      "placedObject": null,
       "mesh": 0,
       "texture": 9,
       "aabb": {
@@ -110,7 +111,7 @@
       "type": "stand",
       "relChildRot": [0, 0, -2],
       "relChildTrans": [0, 0.25, 0], 
-      "placedObject": 9,
+      "placedObject": null,
       "mesh": 0,
       "texture": 9,
       "aabb": {
@@ -240,7 +241,7 @@
       "scale": [10, 4, 0.1]
     },
     { 
-      "ime": "stena mešalka",
+      "ime": "stena okno",
       "type": "model",
       "mesh": 0,
       "texture": 0,
@@ -252,6 +253,7 @@
       "rotation": [0, 0, 0],
       "scale": [0.1, 4, 8]
     },
+    
     { 
       "ime": "stena pregradna_pocez",
       "type": "model",
@@ -305,7 +307,7 @@
       "scale": [0.1, 4, 8]
     },
     { 
-      "ime": "view",
+      "ime": "okno",
       "type": "model",
       "mesh": 0,
       "texture": 13,
@@ -327,15 +329,15 @@
         "min": [-0, 0, 0],
         "max": [0, 0, 0]
       },
-      "translation": [4.1, 2, -3.5],
+      "translation": [7, 2.1, -7.8],
       "rotation": [0, 0, 0],
-      "scale": [0.005, 0.85, 1.3]
+      "scale": [1.3, 0.85, 0.005]
     },
     { 
       "ime": "green screen",
       "type": "model",
       "mesh": 0,
-      "texture": 5,
+      "texture": 15,
       "aabb": {
         "min": [-0.1, -4, -10],
         "max": [0.1, 4, 10]
@@ -389,7 +391,7 @@
       "type": "stand",
       "relChildRot": [0, 0, 0],
       "relChildTrans": [0, 0.05, 0], 
-      "placedObject": 30,
+      "placedObject": null,
       "mesh": 0,
       "texture": 4,
       "aabb": {
@@ -458,7 +460,7 @@
       "type": "stand",
       "relChildRot": [0, 0, 0],
       "relChildTrans": [0, 0.05, 0], 
-      "placedObject": 35,
+      "placedObject": null,
       "mesh": 0,
       "texture": 4,
       "aabb": {
@@ -483,33 +485,6 @@
         "scale": [0.12, 0.05, 0.05]
       },
       {
-        "ime": "miza_audiomix",
-        "type": "model",
-        "mesh": 0,
-        "texture": 6,
-        "aabb": {
-          "min": [-1.3, -5, -0.7],
-          "max": [1.3, 5, 0.7]
-        },
-        "translation": [7, 1, -7.4],
-        "rotation": [0, 0, 0],
-        "scale": [1.3, 0.05, 0.7]
-      },
-      {
-        "ime": "videomix",
-        "type": "interactable",
-        "textureSwitch": 24,
-        "mesh": 0,
-        "texture": 4,
-        "aabb": {
-          "min": [-1.3, -5, -0.7],
-          "max": [1.3, 5, 0.7]
-        },
-        "translation": [7, 1.2, -7.4],
-        "rotation": [0, 0, 0],
-        "scale": [0.7, 0.2, 0.5]
-      },
-      {
         "ime": "miza_videomix",
         "type": "model",
         "mesh": 0,
@@ -518,7 +493,43 @@
           "min": [-1.3, -5, -0.7],
           "max": [1.3, 5, 0.7]
         },
-        "translation": [7, 1, 7.4],
+        "translation": [7, 0.8, -7.4],
+        "rotation": [0, 0, 0],
+        "scale": [1.3, 0.05, 0.7]
+      },
+      {
+        "ime": "videomix",
+        "type": "interactable",
+        "textureSwitch": 24,
+        "mesh": 0,
+        "texture": 22,
+        "aabb": {
+          "min": [-1.3, -5, -0.7],
+          "max": [1.3, 5, 0.7]
+        },
+        "translation": [7, 1, -7.4],
+        "rotation": [0, 0, 0],
+        "scale": [0.7, 0.09, 0.5]
+      },
+      {
+        "ime": "video za teksturo",
+        "type": "interactable",
+        "mesh": 0,
+        "texture": 21,
+        "translation": [7, 1.09, -7.4],
+        "rotation": [0, 0, 0],
+        "scale": [0.7, 0.002, 0.5]
+      },
+      {
+        "ime": "miza_audiomix",
+        "type": "model",
+        "mesh": 0,
+        "texture": 6,
+        "aabb": {
+          "min": [-0.6, -5, -0.4],
+          "max": [0.6, 5, 0.4]
+        },
+        "translation": [7, 0.8, 7.4],
         "rotation": [0, 0, 0],
         "scale": [1.3, 0.05, 0.7]
       },
@@ -527,40 +538,181 @@
         "type": "interactable",
         "textureSwitch": null,
         "mesh": 0,
-        "texture": 4,
+        "texture": 20,
         "aabb": {
-          "min": [-1.3, -5, -0.7],
-          "max": [1.3, 5, 0.7]
+          "min": [-0.6, -5, -0.2],
+          "max": [0.6, 5, 0.2]
         },
-        "translation": [7, 1.2, 7.4],
+        "translation": [7, 1, 7.4],
         "rotation": [0, 0, 0],
-        "scale": [0.7, 0.2, 0.5]
+        "scale": [0.7, 0.09, 0.5]
       },
       {
-        "ime": "audiomix_napis",
+        "ime": "audiomix za teksturo",
+        "type": "interactable",
+        "mesh": 0,
+        "texture": 19,
+        "translation": [7, 1.09, 7.4],
+        "rotation": [0, 0, 0],
+        "scale": [0.7, 0.002, 0.5]
+      },
+      {
+        "ime": "audiomix_monitor",
         "type": "model",
         "mesh": 0,
-        "texture": 10,
+        "texture": 23,
         "aabb": {
           "min": [-0, -0, 0],
           "max": [0, 0, 0]
         },
-        "translation": [7, 2, 7.8],
+        "translation": [7.4, 2, 7.8],
         "rotation": [0, 0, 0],
-        "scale": [0.5, 0.1, 0.002]
+        "scale": [0.35, 0.35, 0.002]
       },
       {
-        "ime": "videomix_napis",
+        "ime": "audiomix_monitor",
         "type": "model",
         "mesh": 0,
-        "texture": 11,
+        "texture": 24,
         "aabb": {
           "min": [-0, -0, 0],
           "max": [0, 0, 0]
         },
-        "translation": [7, 2, -7.8],
+        "translation": [6.6, 2, 7.8],
         "rotation": [0, 0, 0],
-        "scale": [0.5, 0.1, 0.002]
+        "scale": [0.35, 0.35, 0.002]
+      },
+     
+      { 
+        "ime": "omara_spodnji del",
+        "type": "model",
+        "mesh": 0,
+        "texture": 17,
+        "aabb": {
+          "min": [-0.4, -0.5, -1],
+          "max": [0.4, 0.5, 1]
+        },
+        "translation": [9.8, 0, 4],
+        "rotation": [0, 0, 0],
+        "scale": [0.4, 1, 1]
+      },
+      { 
+        "ime": "omara_spodnji za teksturo",
+        "type": "model",
+        "mesh": 0,
+        "texture": 16,
+        "aabb": {
+          "min": [-0.01, -1, -1],
+          "max": [0.01, 1, 1]
+        },
+        "translation": [9.4, 0, 4],
+        "rotation": [0, 0, 0],
+        "scale": [0.01, 1, 1]
+      },
+
+      { 
+        "ime": "omara_zgornji del",
+        "type": "model",
+        "mesh": 0,
+        "texture": 17,
+        "aabb": {
+          "min": [-0.4, -0.5, -1],
+          "max": [0.4, 0.5, 1]
+        },
+        "translation": [9.8, 2.5, 4],
+        "rotation": [0, 0, 0],
+        "scale": [0.4, 0.5, 1]
+      },
+      { 
+        "ime": "omara_zgornji za teksturo",
+        "type": "model",
+        "mesh": 0,
+        "texture": 16,
+        "aabb": {
+          "min": [-0.01, -1, -1],
+          "max": [0.01, 1, 1]
+        },
+        "translation": [9.4, 2.5, 4],
+        "rotation": [0, 0, 0],
+        "scale": [0.01, 1, 1]
+      },
+      { 
+        "ime": "omara_precnaDila",
+        "type": "model",
+        "mesh": 0,
+        "texture": 17,
+        "aabb": {
+          "min": [-0.4, -2.5, -0.02],
+          "max": [0.4, 2.5, 0.02]
+        },
+        "translation": [9.8, 1, 3],
+        "rotation": [0, 0, 0],
+        "scale": [0.4, 2.5, 0.02]
+      },
+      { 
+        "ime": "omara_precnaDila",
+        "type": "model",
+        "mesh": 0,
+        "texture": 17,
+        "aabb": {
+          "min": [-0.4, -2.5, -0.02],
+          "max": [0.4, 2.5, 0.02]
+        },
+        "translation": [9.8, 1, 5],
+        "rotation": [0, 0, 0],
+        "scale": [0.4, 2.5, 0.02]
+      },
+      { 
+        "ime": "kamera_mikrofon podstavek v omari",
+        "type": "stand",
+        "relChildRot": [0, 0, 0],
+        "relChildTrans": [0, 0.05, 0], 
+        "placedObject": 30,
+        "mesh": 0,
+        "texture": 18,
+        
+        "translation": [9.65, 1, 3.3],
+        "rotation": [0, 0, 0],
+        "scale": [0.15, 0.01, 0.15]
+      },
+      { 
+        "ime": "kamera_mikrofon podstavek v omari",
+        "type": "stand",
+        "relChildRot": [0, 0, 0],
+        "relChildTrans": [0, 0.05, 0], 
+        "placedObject": 35,
+        "mesh": 0,
+        "texture": 18,
+        
+        "translation": [9.65, 1, 3.7],
+        "rotation": [0, 0, 0],
+        "scale": [0.15, 0.01, 0.15]
+      },
+      { 
+        "ime": "kamera_mikrofon podstavek v omari",
+        "type": "stand",
+        "relChildRot": [0, 0, 0],
+        "relChildTrans": [0, 0.05, 0], 
+        "placedObject": 6,
+        "mesh": 0,
+        "texture": 18,
+        
+        "translation": [9.65, 1, 4.1],
+        "rotation": [0, 0, 0],
+        "scale": [0.15, 0.01, 0.15]
+      },
+      { 
+        "ime": "kamera_mikrofon podstavek v omari",
+        "type": "stand",
+        "relChildRot": [0, 0, 0],
+        "relChildTrans": [0, 0.05, 0], 
+        "placedObject": 9,
+        "mesh": 0,
+        "texture": 18,
+        
+        "translation": [9.65, 1, 4.5],
+        "rotation": [0, 0, 0],
+        "scale": [0.15, 0.01, 0.15]
       }
   ],
   "textures": [
@@ -578,7 +730,18 @@
     "../../common/images/videomix_napis.jpg",
     "../../common/images/stena.png",
     "../../common/images/view.png",
-    "../../common/images/televizija.jpg"
+    "../../common/images/televizija.jpg",
+    "../../common/images/fri.jpg",
+    "../../common/images/omara16.png",
+    "../../common/images/omarafill17.png",
+    "../../common/images/darkblue18.jpg",
+    "../../common/images/audiomixer19.jpg",
+    "../../common/images/audiomixerfill20.jpg",
+    "../../common/images/videomix21.jpg",
+    "../../common/images/videomixfill22.jpg",
+    "../../common/images/audiomixmonitor23.jpg",
+    "../../common/images/audiomixmonitor24.jpg"
+
     
   ],
   "meshes": [

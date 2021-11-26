@@ -11,18 +11,18 @@
     <script type="text/javascript" src="../lib/dat.gui.min.js"></script>
     <script type="module" src="game.js"></script>
 </head>
-<body onload="poslusaj(); gamePlay()" onclick="countdown();">
+ <body onload="poslusaj(); gamePlay()" onclick="countdown();">
 
     <!-- Display the countdown timer in an element -->
     <p id="demo"></p>
 
     <div id="score" style="display: flex" class="score">SCORE: &nbsp; <p id="num">0</p></div>
     <button onclick="randTask()">click me</button>
-
+    
     <div id="overlay"></div>
     <div class="fullscreen">
         <canvas></canvas>
-    </div>
+    </div> 
     <div class="modal" id="modal">
         <div class="modal-header">
             <div class="title">THINGS TO DO BEFORE WE START</div>
@@ -45,7 +45,7 @@
 
             </ul>
         </div>
-    </div>
+    </div> 
     <script src="potek_igre.js"></script>
 
 </body>
