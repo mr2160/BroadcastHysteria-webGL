@@ -2,7 +2,7 @@
   "nodes": [
     {
       "type": "player",
-      "translation": [-2, 0.9, 0],
+      "translation": [-2, 0.8, 0],
       "aabb": {
         "min": [-0.2, -1, -0.2],
         "max": [0.2, 1, 0.2]
@@ -493,7 +493,7 @@
           "min": [-1.3, -5, -0.7],
           "max": [1.3, 5, 0.7]
         },
-        "translation": [7, 0.8, -7.4],
+        "translation": [7, 0.9, -7.4],
         "rotation": [0, 0, 0],
         "scale": [1.3, 0.05, 0.7]
       },
@@ -512,7 +512,7 @@
         "scale": [0.7, 0.09, 0.5]
       },
       {
-        "ime": "video za teksturo",
+        "ime": "videomix za teksturo",
         "type": "interactable",
         "mesh": 0,
         "texture": 21,
@@ -529,7 +529,7 @@
           "min": [-0.6, -5, -0.4],
           "max": [0.6, 5, 0.4]
         },
-        "translation": [7, 0.8, 7.4],
+        "translation": [7, 0.9, 7.4],
         "rotation": [0, 0, 0],
         "scale": [1.3, 0.05, 0.7]
       },
@@ -594,7 +594,7 @@
         },
         "translation": [9.8, 0, 4],
         "rotation": [0, 0, 0],
-        "scale": [0.4, 1, 1]
+        "scale": [0.4, 1.5, 1]
       },
       { 
         "ime": "omara_spodnji za teksturo",
@@ -607,7 +607,7 @@
         },
         "translation": [9.4, 0, 4],
         "rotation": [0, 0, 0],
-        "scale": [0.01, 1, 1]
+        "scale": [0.01, 1.5, 1]
       },
 
       { 
@@ -619,7 +619,7 @@
           "min": [-0.4, -0.5, -1],
           "max": [0.4, 0.5, 1]
         },
-        "translation": [9.8, 2.5, 4],
+        "translation": [9.8, 2.7, 4],
         "rotation": [0, 0, 0],
         "scale": [0.4, 0.5, 1]
       },
@@ -632,9 +632,9 @@
           "min": [-0.01, -1, -1],
           "max": [0.01, 1, 1]
         },
-        "translation": [9.4, 2.5, 4],
+        "translation": [9.4, 2.7, 4],
         "rotation": [0, 0, 0],
-        "scale": [0.01, 1, 1]
+        "scale": [0.01, 0.8, 1]
       },
       { 
         "ime": "omara_precnaDila",
@@ -671,7 +671,7 @@
         "mesh": 0,
         "texture": 18,
         
-        "translation": [9.65, 1, 3.3],
+        "translation": [9.65, 1.5, 3.3],
         "rotation": [0, 0, 0],
         "scale": [0.15, 0.01, 0.15]
       },
@@ -684,7 +684,7 @@
         "mesh": 0,
         "texture": 18,
         
-        "translation": [9.65, 1, 3.7],
+        "translation": [9.65, 1.5, 3.7],
         "rotation": [0, 0, 0],
         "scale": [0.15, 0.01, 0.15]
       },
@@ -697,7 +697,7 @@
         "mesh": 0,
         "texture": 18,
         
-        "translation": [9.65, 1, 4.1],
+        "translation": [9.65, 1.5, 4.1],
         "rotation": [0, 0, 0],
         "scale": [0.15, 0.01, 0.15]
       },
@@ -710,10 +710,140 @@
         "mesh": 0,
         "texture": 18,
         
-        "translation": [9.65, 1, 4.5],
+        "translation": [9.65, 1.5, 4.5],
         "rotation": [0, 0, 0],
         "scale": [0.15, 0.01, 0.15]
+      },
+      {
+        "ime": "miza_računalnik",
+        "type": "model",
+        "mesh": 0,
+        "texture": 6,
+        "aabb": {
+          "min": [-0.5, -5, -1.1],
+          "max": [0.5, 5, 1.1]
+        },
+        "translation": [4.8, 0.8, 4.5],
+        "rotation": [0, 0, 0],
+        "scale": [0.7, 0.05, 1.3]
+      },
+      {
+        "ime": "računalnik_podstavek_na mizi",
+        "type": "model",
+        "mesh": 0,
+        "texture": 0,
+       
+        "translation": [4.5, 0.85, 4.5],
+        "rotation": [0, 0, 0],
+        "scale": [0.2, 0.01, 0.2]
+      },
+      {
+        "ime": "računalnik_podstavek",
+        "type": "model",
+        "mesh": 0,
+        "texture": 0,
+       
+        "translation": [4.5, 0.9, 4.5],
+        "rotation": [0, 0, 0],
+        "scale": [0.01, 0.07, 0.03]
+      },
+      {
+        "ime": "računalnik",
+        "type": "model",
+        "mesh": 0,
+        "texture": 0,
+       
+        "translation": [4.47, 1.36, 4.5],
+        "rotation": [0, 0, 0.1],
+        "scale": [0.01, 0.4, 0.7]
+      },
+      {
+        "ime": "računalnik_zaslon",
+        "type": "model",
+        "mesh": 0,
+        "texture": 25,
+       
+        "translation": [4.48, 1.36, 4.5],
+        "rotation": [0, 0, 0.1],
+        "scale": [0.01, 0.39, 0.68]
+      },
+      {
+        "ime": "tipkovnica",
+        "type": "model",
+        "mesh": 0,
+        "texture": 26,
+       
+        "translation": [5, 0.85, 4.5],
+        "rotation": [0, 0, 0],
+        "scale": [0.19, 0.008, 0.4]
+      },
+      {
+        "ime": "miza_računalnik",
+        "type": "model",
+        "mesh": 0,
+        "texture": 6,
+        "aabb": {
+          "min": [-0.5, -5, -1.1],
+          "max": [0.5, 5, 1.1]
+        },
+        "translation": [4.8, 0.8, -4.5],
+        "rotation": [0, 0, 0],
+        "scale": [0.7, 0.05, 1.3]
+      },
+      {
+        "ime": "računalnik_podstavek_na mizi",
+        "type": "model",
+        "mesh": 0,
+        "texture": 0,
+       
+        "translation": [4.5, 0.85, -4.5],
+        "rotation": [0, 0, 0],
+        "scale": [0.2, 0.01, 0.2]
+      },
+      {
+        "ime": "računalnik_podstavek",
+        "type": "model",
+        "mesh": 0,
+        "texture": 0,
+       
+        "translation": [4.5, 0.9, -4.5],
+        "rotation": [0, 0, 0],
+        "scale": [0.01, 0.07, 0.03]
+      },
+      {
+        "ime": "računalnik",
+        "type": "model",
+        "mesh": 0,
+        "texture": 0,
+       
+        "translation": [4.47, 1.36, -4.5],
+        "rotation": [0, 0, 0.1],
+        "scale": [0.01, 0.4, 0.7]
+      },
+      {
+        "ime": "računalnik_zaslon",
+        "type": "model",
+        "mesh": 0,
+        "texture": 27,
+       
+        "translation": [4.48, 1.36, -4.5],
+        "rotation": [0, 0, 0.1],
+        "scale": [0.01, 0.39, 0.68]
+      },
+      {
+        "ime": "tipkovnica",
+        "type": "model",
+        "mesh": 0,
+        "texture": 26,
+       
+        "translation": [5, 0.85, -4.5],
+        "rotation": [0, 0, 0],
+        "scale": [0.19, 0.008, 0.4]
       }
+
+
+      
+      
   ],
   "textures": [
     "../../common/images/filc.png",  
@@ -740,7 +870,10 @@
     "../../common/images/videomix21.jpg",
     "../../common/images/videomixfill22.jpg",
     "../../common/images/audiomixmonitor23.jpg",
-    "../../common/images/audiomixmonitor24.jpg"
+    "../../common/images/audiomixmonitor24.jpg",
+    "../../common/images/racunalnik_screen25.jpg",
+    "../../common/images/keyboard26.jpeg",
+    "../../common/images/racunalnik_screen27.jpg"
 
     
   ],
