@@ -1,6 +1,8 @@
+import { Interactable } from './Interactable.js';
 import { Player } from './Player.js';
 import { Scene } from './Scene.js';
 import { Stand } from './Stand.js';
+
 
 export class PotekIgre {
 
@@ -12,6 +14,8 @@ export class PotekIgre {
         this.modal2 = document.getElementById("modal2");
         this.overlay = document.getElementById('overlay')
         this.tasks = document.getElementById("tasks");
+        this.tasks2 = document.getElementById("tasks2");
+        
         this.demo = document.getElementById("demo");
         this.ending = document.getElementById("ending");
         this.ending1= document.getElementById("ending1");
@@ -21,13 +25,14 @@ export class PotekIgre {
         this.scene = scene;
         this.stands = [];
         this.placingTasks = [];
+        this.interactables = [];
 
         this.startTime = null;
         this.endTime = null;
 
         this.playing = false;
         this.score = 0;
-
+        this.extra = false;
         this.prepareTasks();
         
         var object = this;
@@ -37,7 +42,6 @@ export class PotekIgre {
     }
 
     prepareTasks(){
-        console.log(this.scene);
         this.scene.nodes.forEach(node => {
             if(node instanceof Stand && node.target){
                 this.stands.push(node);
@@ -45,7 +49,12 @@ export class PotekIgre {
                 this.pinNewTask(node.target, this.tasks, node.target)
             }
         });
-        console.log(this.stands);
+        this.scene.nodes.forEach(node => {
+            if(node instanceof Interactable && node.textureSwitch){
+                this.interactables.push(node);
+                this.pinNewTask(node.ime, this.tasks, node.ime)
+            }
+        });
     }
 
     updateTasks(){
@@ -67,11 +76,51 @@ export class PotekIgre {
                 taskLi.style.color = "red";
             }
         }
+
+        for (let i = 0; i < this.interactables.length; i++){
+            if(!this.interactables[i].switched){
+                this.placingTasks[i] = false;
+                let taskLi = document.getElementById(this.interactables[i].ime);
+                taskLi.style.color = "red";
+                continue
+            }
+            if(this.interactables[i].switched){
+                
+                this.placingTasks[i] = true;
+                let taskLi = document.getElementById(this.interactables[i].ime);
+                taskLi.style.color = "green";
+            }else{
+                this.placingTasks[i] = false;
+                let taskLi = document.getElementById(this.interactables[i].ime);
+                taskLi.style.color = "red";
+            }
+        }
+
+    }
+
+    extraTask(){
+        let i = Math.floor(Math.random()*this.stands.length);
+        let j = Math.floor(Math.random()*(this.stands.length-1));
+        if(j >= i) j++
+        
+        let target1 = this.stands[i].target;
+        let target2 = this.stands[j].target;
+        this.stands[i].target = target2;
+        this.stands[j].target = target1;
+
+        var sporocilo = "Hmmm, kaj če bi obrnili " + target1 + " in " + target2 + "?"
+        this.tasks2.innerHTML = sporocilo;
+        this.modal2.classList.add('active');
     }
 
     checkTasks(){
         for(let i = 0; i < this.placingTasks.length; i++){
             if(!this.placingTasks[i]){
+                return false
+            }
+        }
+        for(let i = 0; i < this.interactables.length; i++){
+            if(!this.interactables[i].switched){
                 return false
             }
         }
@@ -88,17 +137,6 @@ export class PotekIgre {
         element.appendChild(newTask);
     }
 
-    randTask() {
-        this.openModal(modal2);
-
-        var taskname = ["KAMERA","SLIKA", "REZISER", "AUDIO"];
-        var taskDescription = ["Kamera je izgubila fokus, popravi jo!","Video mix zeza, preveri hitro!", "NUJNO, KONEC SVETA! REZISER BI KAVO", "Ohoho kolega, audio frcera, bo treba popravit"];
-
-        let i = Math.floor(Math.random()*taskname.length);
-        var div = document.getElementById('response');
-        this.pinNewTask(taskname[i] + ": " + taskDescription[i]);
-
-    }
 
 
     //updateScore() {
@@ -110,7 +148,7 @@ export class PotekIgre {
         this.grafikaDiv.style.display = "flex";
         this.blocker.style.display = "none";
         this.startTime = Date.now();
-        this.endTime = this.startTime + (40*1000);
+        this.endTime = this.startTime + (60*1000);
         this.playing = true;
     }
 
@@ -148,6 +186,15 @@ export class PotekIgre {
         var hsl = "hsl(0, "+ sat + "%, "+ val +"%)"
         this.demo.innerHTML = "Stream starts in: " + remainingTime;
         this.demo.style.backgroundColor = hsl;
+        if(remainingTime == 20 && !this.extra){
+            this.extra = true
+            this.extraTask();
+        }
+        if(remainingTime == 10 && this.extra){
+            this.extra = false;
+            this.modal2.classList.remove('active');
+        }
+        
     }
     update(dt, t){
         this.updateTasks();

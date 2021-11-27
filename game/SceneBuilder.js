@@ -52,10 +52,11 @@ export class SceneBuilder {
             case 'interactable':{
                 const mesh = new Mesh(this.spec.meshes[spec.mesh]);
                 const texture = this.spec.textures[spec.texture];
+                const ime = spec.ime;
                 if(!spec.textureSwitch){
-                    return new Interactable(null, mesh, texture, spec);
+                    return new Interactable(ime, null, mesh, texture, spec);
                 }
-                let inter = new Interactable(scene.nodes[spec.textureSwitch], mesh, texture, spec);
+                let inter = new Interactable(ime, scene.nodes[spec.textureSwitch], mesh, texture, spec);
                 return inter
             }
         }

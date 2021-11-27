@@ -325,8 +325,8 @@
       "ime": "televizija",
       "type": "textureSwitch",
       "mesh": 0,
-      "texture": 14,
-      "altTexture": 6,
+      "texture": 6,
+      "altTexture": 14,
       "aabb": {
         "min": [-0, 0, 0],
         "max": [0, 0, 0]
@@ -502,7 +502,7 @@
         "scale": [1.3, 0.05, 0.7]
       },
       {
-        "ime": "videomix",
+        "ime": "Videomix",
         "type": "interactable",
         "textureSwitch": 24,
         "mesh": 0,

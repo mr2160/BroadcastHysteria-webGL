@@ -83,6 +83,7 @@ body {
     max-width: 70%;
 }
 .modal2 {
+    background-color: darkred;
     position: fixed;
     top: 60%;
 }
@@ -97,6 +98,13 @@ body {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid black;
+}
+
+
+
+.modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
 }
 
 .modal-header .title {
