@@ -67,6 +67,7 @@
     {
       "ime": "mikrofon 1 spodnji del",
       "type": "stand",
+      "target": "mikrofon 1",
       "relChildRot": [0, 0, -2],
       "relChildTrans": [0, 0.25, 0], 
       "placedObject": null,
@@ -109,6 +110,7 @@
     {
       "ime": "mikrofon 2 spodnji del",
       "type": "stand",
+      "target": "mikrofon 2",
       "relChildRot": [0, 0, -2],
       "relChildTrans": [0, 0.25, 0], 
       "placedObject": null,
@@ -389,6 +391,7 @@
     {
     "ime": "kamera_podstavek",
       "type": "stand",
+      "target": "Desna kamera",
       "relChildRot": [0, 0, 0],
       "relChildTrans": [0, 0.05, 0], 
       "placedObject": null,
@@ -403,7 +406,7 @@
       "scale": [0.07, 0.005, 0.05]
     },
     {
-      "ime": "kamera_desna",
+      "ime": "Desna kamera",
         "type": "model",
         "mesh": 0,
         "texture": 4,
@@ -458,6 +461,7 @@
     {
     "ime": "kamera_podstavek",
       "type": "stand",
+      "target": "Leva kamera",
       "relChildRot": [0, 0, 0],
       "relChildTrans": [0, 0.05, 0], 
       "placedObject": null,
@@ -472,7 +476,7 @@
       "scale": [0.07, 0.005, 0.05]
     },
     {
-      "ime": "kamera_leva",
+      "ime": "Leva kamera",
         "type": "model",
         "mesh": 0,
         "texture": 4,
@@ -665,6 +669,7 @@
       { 
         "ime": "kamera_mikrofon podstavek v omari",
         "type": "stand",
+        "target": null,
         "relChildRot": [0, 0, 0],
         "relChildTrans": [0, 0.05, 0], 
         "placedObject": 30,
@@ -678,6 +683,7 @@
       { 
         "ime": "kamera_mikrofon podstavek v omari",
         "type": "stand",
+        "target": null,
         "relChildRot": [0, 0, 0],
         "relChildTrans": [0, 0.05, 0], 
         "placedObject": 35,
@@ -691,6 +697,7 @@
       { 
         "ime": "kamera_mikrofon podstavek v omari",
         "type": "stand",
+        "target": null,
         "relChildRot": [0, 0, 0],
         "relChildTrans": [0, 0.05, 0], 
         "placedObject": 6,
@@ -704,6 +711,7 @@
       { 
         "ime": "kamera_mikrofon podstavek v omari",
         "type": "stand",
+        "target": null,
         "relChildRot": [0, 0, 0],
         "relChildTrans": [0, 0.05, 0], 
         "placedObject": 9,

@@ -160,3 +160,28 @@ body {
     padding: 15px 30px;
     border-radius: 10px;
 }
+
+#ending1{
+    align-content: center;
+    background-color: red;
+    color: whitesmoke;
+    position: absolute;
+    left: 35%;
+    top: 38%;
+    z-index: 6;
+    font-size: 80px;
+    padding: 15px 30px;
+    border-radius: 10px;
+}
+#ending2{
+    align-content: center;
+    background-color: darkred;
+    color: whitesmoke;
+    position: absolute;
+    left: 32%;
+    top: 60%;
+    z-index: 6;
+    font-size: 40px;
+    padding: 15px 30px;
+    border-radius: 10px;
+}

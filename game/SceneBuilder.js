@@ -23,7 +23,7 @@ export class SceneBuilder {
             case 'model': {
                 const mesh = new Mesh(this.spec.meshes[spec.mesh]);
                 const texture = this.spec.textures[spec.texture];
-                return new Model(spec.mType, mesh, texture, spec);
+                return new Model(spec.ime, mesh, texture, spec);
             }
             case 'textureSwitch': {
                 const mesh = new Mesh(this.spec.meshes[spec.mesh]);
@@ -42,7 +42,7 @@ export class SceneBuilder {
                 const texture = this.spec.textures[spec.texture];
                 const relChildRot = spec.relChildRot;
                 const relChildTrans = spec.relChildTrans;
-                let stand = new Stand(relChildTrans, relChildRot, mesh, texture, spec);
+                let stand = new Stand(spec.target, relChildTrans, relChildRot, mesh, texture, spec);
                 if(!spec.placedObject){
                     return stand
                 }

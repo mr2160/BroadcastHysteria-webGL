@@ -14,48 +14,30 @@
 <body>
     
     <!-- Display the countdown timer in an element -->
-    <p id="demo">
-    </p>
-
-    <div id="blocker">Enable camera to start</div>    
-
-    <div id="score" style="display: flex" class="score">SCORE: &nbsp; <p id="num">0</p></div>
-    <button onclick="randTask()">click me</button>
     
+
+    <div id="blocker">Enable camera to start</div>
+    <div id= "ending" style="display: none;"> 
+        <div id="ending1">WE ARE LIVE!</div>
+        <div id="ending2">But you wont be alive much longer...</div>   
+    </div>
+
     <div id="overlay"></div>
     <div class="fullscreen">
         <canvas></canvas>
     </div> 
-    <div class="modal" id="modal">
-        <div class="modal-header">
-            <div class="title">THINGS TO DO BEFORE WE START</div>
-        </div>
-        <div class="modal-body">
-            <ul id="tasks" class="chat-messages">
-                <li class="task">KAMERA (c) <img id="ena"  src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"> </li>
-                <li  class="task">LIGHTS (l) <img id="dva" src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"></li>
-                <li  class="task">GREEN SCREEN (g) <img id="tri" src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"></li>
-    
-    <button>click me</button>
-
-    <div class="fullscreen">
-        <canvas></canvas>
-    </div>
-
 
 
     <div id="grafika" style="display: none">
-        <div id="score" style="display: flex" class="score">SCORE: &nbsp; <p id="num">0</p></div> 
+        <p id="demo">
+        </p>
+        <!--<div id="score" style="display: flex" class="score">SCORE: &nbsp; <p id="num">0</p></div> -->
         <div class="modal active" id="modal">
             <div class="modal-header">
                 <div class="title">THINGS TO DO BEFORE WE START</div>
             </div>
             <div class="modal-body">
                 <ul id="tasks" class="chat-messages">
-                    <li class="task">KAMERA (c) <img id="ena"  src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"> </li>
-                    <li  class="task">LIGHTS (l) <img id="dva" src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"></li>
-                    <li  class="task">GREEN SCREEN (g) <img id="tri" src="../common/images/red-x.png" style="width: 15px; padding-left: 10px"></li>
-
                 </ul>
             </div>
         </div>

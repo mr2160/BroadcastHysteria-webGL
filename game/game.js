@@ -26,7 +26,7 @@ class App extends Application {
         document.addEventListener('pointerlockchange', this.pointerlockchangeHandler);
 
         this.load('scene.json');
-        this.potekIgre = new PotekIgre();
+        
     }
 
     async load(uri) {
@@ -60,7 +60,7 @@ class App extends Application {
 
         //this.stand.placeObject(this.scene.nodes[2])
         
-
+        this.potekIgre = new PotekIgre(this.player, this.scene);
         this.player.camera.aspect = this.aspect;
         this.player.camera.updateProjection();
         this.renderer.prepare(this.scene);
@@ -97,7 +97,7 @@ class App extends Application {
         }
 
         if(this.potekIgre){
-            this.potekIgre.update(dt);
+            this.potekIgre.update(dt, t);
         }
     }
 

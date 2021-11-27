@@ -3,13 +3,14 @@ import { vec3, mat4 } from '../../lib/gl-matrix-module.js';
 
 export class Stand extends Node {
 
-    constructor(relChildTrans, relChildRot, mesh, image, options) {
+    constructor(target, relChildTrans, relChildRot, mesh, image, options) {
         super(options);
         this.mesh = mesh;
         this.image = image;
         this.placedObject = null;
         this.relChildTrans = vec3.clone(relChildTrans);
         this.relChildRot = vec3.clone(relChildRot);
+        this.target = target;
     }
 
 
@@ -37,6 +38,9 @@ export class Stand extends Node {
         return this.placedObject;
     }
 
+    getTarget(){
+        return this.target;
+    }
     getPlacedObject(){
         return this.placedObject;
     }
