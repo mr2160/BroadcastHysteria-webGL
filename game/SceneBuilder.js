@@ -42,7 +42,7 @@ export class SceneBuilder {
                 const texture = this.spec.textures[spec.texture];
                 const relChildRot = spec.relChildRot;
                 const relChildTrans = spec.relChildTrans;
-                let stand = new Stand(spec.target, relChildTrans, relChildRot, mesh, texture, spec);
+                let stand = new Stand(spec.ime, spec.target, relChildTrans, relChildRot, mesh, texture, spec);
                 if(!spec.placedObject){
                     return stand
                 }

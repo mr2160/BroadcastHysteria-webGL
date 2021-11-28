@@ -17,6 +17,7 @@ export class Player extends Node {
         this.keyupHandler = this.keyupHandler.bind(this);
         this.keys = {};
         this.heldKey = {};
+        this.pi = null;
     }
 
     addScene(scene){
@@ -121,15 +122,18 @@ export class Player extends Node {
         }
         if (this.keys['KeyE']) {
             this.letgo();
+            this.pi.updateTasks();
         }
         if (this.keys['KeyQ']) {
             this.grab();
+            this.pi.updateTasks();
         }
         if (this.keys['Space']) {
             if(!this.heldKey['Space']){
                 this.interact();
                 this.heldKey['Space'] = true;
             }
+            this.pi.updateTasks();
         }
 
         // 2: update velocity

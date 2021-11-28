@@ -2,20 +2,20 @@
   "nodes": [
     {
       "type": "player",
-      "translation": [-2, 0.8, 0],
+      "translation": [0, 1, 0],
       "aabb": {
         "min": [-0.2, -1, -0.2],
         "max": [0.2, 1, 0.2]
       },
       "aspect": 1,
-      "fov": 1.5,
+      "fov": 0.2,
       "near": 0.01,
       "far": 100
     },
     {
       "type": "camera",
       "translation": [0, 1, 0],
-      "rotation": [0, 1, 0],
+      "rotation": [0, 1.2, 0],
       "aabb": {
         "min": [0, 0, 0],
         "max": [0, 0, 0]
@@ -65,9 +65,9 @@
       "scale": [0.15, 0.02, 0.15]
     },
     {
-      "ime": "mikrofon 1 spodnji del",
+      "ime": "Mic stand 1",
       "type": "stand",
-      "target": "mikrofon 1",
+      "target": "Mikrofon 1",
       "relChildRot": [0, 0, 1],
       "relChildTrans": [0, 0.25, 0], 
       "placedObject": null,
@@ -82,7 +82,7 @@
       "scale": [0.02, 0.25, 0.02]
     },
     {
-      "ime": "mikrofon 1",
+      "ime": "Mikrofon 1",
       "type": "model",
       "mesh": 3,
       "texture": 4,
@@ -108,9 +108,9 @@
       "scale": [0.15, 0.02, 0.15]
     },
     {
-      "ime": "mikrofon 2 spodnji del",
+      "ime": "Mic stand 2",
       "type": "stand",
-      "target": "mikrofon 2",
+      "target": "Mikrofon 2",
       "relChildRot": [0, 0, 1],
       "relChildTrans": [0, 0.25, 0], 
       "placedObject": null,
@@ -125,7 +125,7 @@
       "scale": [0.02, 0.25, 0.02]
     },
     {
-      "ime": "mikrofon 2",
+      "ime": "Mikrofon 2",
       "type": "model",
       "mesh": 3,
       "texture": 4,
@@ -325,8 +325,8 @@
       "ime": "televizija",
       "type": "textureSwitch",
       "mesh": 0,
-      "texture": 6,
-      "altTexture": 14,
+      "texture": 31,
+      "altTexture": 32,
       "aabb": {
         "min": [-0, 0, 0],
         "max": [0, 0, 0]
@@ -339,7 +339,7 @@
       "ime": "green screen",
       "type": "model",
       "mesh": 0,
-      "texture": 15,
+      "texture": 5,
       "aabb": {
         "min": [-0.1, -4, -10],
         "max": [0.1, 4, 10]
@@ -389,7 +389,7 @@
       "scale": [0.01, 1.5, 0.01]
     },
     {
-    "ime": "kamera_podstavek",
+    "ime": "Desni tripod",
       "type": "stand",
       "target": "Desna kamera",
       "relChildRot": [0, 0, 0],
@@ -459,7 +459,7 @@
       "scale": [0.01, 1.5, 0.01]
     },
     {
-    "ime": "kamera_podstavek",
+    "ime": "Levi tripod",
       "type": "stand",
       "target": "Leva kamera",
       "relChildRot": [0, 0, 0],
@@ -538,9 +538,9 @@
         "scale": [1.3, 0.05, 0.7]
       },
       {
-        "ime": "audiomix",
+        "ime": "Audiomix",
         "type": "interactable",
-        "textureSwitch": null,
+        "textureSwitch": 42,
         "mesh": 0,
         "texture": 20,
         "aabb": {
@@ -562,31 +562,30 @@
       },
       {
         "ime": "audiomix_monitor",
-        "type": "model",
+        "type": "textureSwitch",
         "mesh": 0,
-        "texture": 23,
+        "texture": 6,
+        "altTexture": 23,
         "aabb": {
           "min": [-0, -0, 0],
           "max": [0, 0, 0]
         },
-        "translation": [7.4, 2, 7.8],
+        "translation": [7, 2, 7.8],
         "rotation": [0, 0, 0],
-        "scale": [0.35, 0.35, 0.002]
+        "scale": [0.7, 0.35, 0.002]
       },
       {
-        "ime": "audiomix_monitor",
+        "ime": "",
         "type": "model",
         "mesh": 0,
-        "texture": 24,
         "aabb": {
           "min": [-0, -0, 0],
           "max": [0, 0, 0]
         },
-        "translation": [6.6, 2, 7.8],
+        "translation": [7, 2, 20],
         "rotation": [0, 0, 0],
-        "scale": [0.35, 0.35, 0.002]
+        "scale": [0.7, 0.35, 0.002]
       },
-     
       { 
         "ime": "omara_spodnji del",
         "type": "model",
@@ -884,11 +883,35 @@
         "translation": [8.85, 1.15, -3.5],
         "rotation": [0, 1, 0],
         "scale": [0.3, 0.3, 0.3]
+      },
+      { 
+        "ime": "kamera_mikrofon podstavek v omari",
+        "type": "stand",
+        "target": null,
+        "relChildRot": [0, 0, 0],
+        "relChildTrans": [0, 0.05, 0], 
+        "placedObject": null,
+        "mesh": 0,
+        "texture": 18,
+        
+        "translation": [3.9, 1.5, -2.5],
+        "rotation": [0, 0, 1.6],
+        "scale": [0.3, 0.01, 0.2]
+      },
+      { 
+        "ime": "kamera_mikrofon podstavek v omari",
+        "type": "stand",
+        "target": null,
+        "relChildRot": [0, 0, 0],
+        "relChildTrans": [0, 0.05, 0], 
+        "placedObject": null,
+        "mesh": 0,
+        "texture": 18,
+        
+        "translation": [3.9, 1.5, 2.5],
+        "rotation": [0, 0, 1.6],
+        "scale": [0.3, 0.01, 0.2]
       }
-
-
-      
-      
   ],
   "textures": [
     "../../common/images/filc.png",  
@@ -921,9 +944,9 @@
     "../../common/images/racunalnik_screen27.jpg",
     "../../common/images/download.png",
     "../../common/images/kavomat1.png",
-    "../../common/images/cup.png"
-
-    
+    "../../common/images/cup.png",
+    "../../common/images/greenscreen1.png",
+    "../../common/images/greenscreen2.png"
   ],
   "meshes": [
     "../../common/models/cube.json",

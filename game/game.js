@@ -61,6 +61,7 @@ class App extends Application {
         //this.stand.placeObject(this.scene.nodes[2])
         
         this.potekIgre = new PotekIgre(this.player, this.scene);
+        this.player.pi = this.potekIgre;
         this.player.camera.aspect = this.aspect;
         this.player.camera.updateProjection();
         this.renderer.prepare(this.scene);

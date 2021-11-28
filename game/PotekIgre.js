@@ -26,7 +26,8 @@ export class PotekIgre {
         this.stands = [];
         this.placingTasks = [];
         this.interactables = [];
-        this.kavomat = null
+        this.kavomat = null;
+        this.kavomatTask = false;
 
         this.startTime = null;
         this.endTime = null;
@@ -34,7 +35,6 @@ export class PotekIgre {
         this.playing = false;
         this.score = 0;
         this.extra = false;
-        this.extra1 = false;
         this.prepareTasks();
         
         var object = this;
@@ -48,7 +48,8 @@ export class PotekIgre {
             if(node instanceof Stand && node.target){
                 this.stands.push(node);
                 this.placingTasks.push(false);
-                this.pinNewTask(node.target, this.tasks, node.target)
+                var taskString = node.ime + ": " + node.target
+                this.pinNewTask(taskString, this.tasks, node.target)
             }
         });
         this.scene.nodes.forEach(node => {
@@ -84,18 +85,14 @@ export class PotekIgre {
 
         for (let i = 0; i < this.interactables.length; i++){
             if(!this.interactables[i].switched){
-                this.placingTasks[i] = false;
                 let taskLi = document.getElementById(this.interactables[i].ime);
                 taskLi.style.color = "red";
                 continue
             }
             if(this.interactables[i].switched){
-                
-                this.placingTasks[i] = true;
                 let taskLi = document.getElementById(this.interactables[i].ime);
                 taskLi.style.color = "green";
             }else{
-                this.placingTasks[i] = false;
                 let taskLi = document.getElementById(this.interactables[i].ime);
                 taskLi.style.color = "red";
             }
@@ -104,12 +101,26 @@ export class PotekIgre {
     }
 
     kavaTask(){
-        this.interactables.push(this.kavomat);
-        this.pinNewTask("Kava", this.tasks, this.kavomat.ime);
-        var sporocilo = "Hmmm, kaj pa coffee break? ... Zame."
-        this.tasks2.innerHTML = sporocilo;
-        this.modal2.classList.add('active');
+        if(this.kavomatTask && this.kavomat.switched){
+            this.kavomat.interact();
+            this.updateTasks();
+            var sporocilo = "Še komu paše še ena kava? No, meni gotovo."
+            this.tasks2.innerHTML = sporocilo;
+            this.modal2.classList.add('active');
+        }else if(this.kavomatTask && !this.kavomat.switched){
+            var sporocilo = "Študent! Zakaj še ni kave?"
+            this.tasks2.innerHTML = sporocilo;
+            this.modal2.classList.add('active');
+        }else{
+            this.interactables.push(this.kavomat);
+            this.pinNewTask("Kava", this.tasks, this.kavomat.ime);
+            var sporocilo = "Hmmm, kaj pa coffee break? ... Zame."
+            this.tasks2.innerHTML = sporocilo;
+            this.modal2.classList.add('active');
+            this.kavomatTask = true;
+        }
     }
+
 
     extraTask(){
         let i = Math.floor(Math.random()*this.stands.length);
@@ -118,12 +129,19 @@ export class PotekIgre {
         
         let target1 = this.stands[i].target;
         let target2 = this.stands[j].target;
+    
+        var taskLi1 = document.getElementById(target1);
+        var taskLi2 = document.getElementById(target2);
+        
         this.stands[i].target = target2;
         this.stands[j].target = target1;
-
+        taskLi1.innerHTML = this.stands[i].ime +": "+ this.stands[i].target
+        taskLi2.innerHTML = this.stands[j].ime +": "+ this.stands[j].target
         var sporocilo = "Hmmm, kaj če bi obrnili " + target1 + " in " + target2 + "?"
+        
         this.tasks2.innerHTML = sporocilo;
         this.modal2.classList.add('active');
+        this.updateTasks();
     }
 
     checkTasks(){
@@ -183,6 +201,22 @@ export class PotekIgre {
         modal.style.display = "none"
     }
 
+    manageReziser(remT){
+        let i = Math.floor(remT/10);
+        console.log(i);
+        let x = Math.floor(Math.random()*5);
+        console.log(i);
+        if(x>=i){
+            //console.log("kava");
+            this.kavaTask();
+            this.extra = true;
+        }else if(x<i){
+            //console.log("menjava");
+            this.extraTask();
+            this.extra = true;
+        }
+    }
+
     updateTime(t){
         var remainingTime = parseInt((this.endTime - t)/1000);
         if(remainingTime < 0){
@@ -193,34 +227,24 @@ export class PotekIgre {
         var hsl = "hsl(0, "+ sat + "%, "+ val +"%)"
         this.demo.innerHTML = "Stream starts in: " + remainingTime;
         this.demo.style.backgroundColor = hsl;
-
-        if(remainingTime == 30 && !this.extra1){
-            this.kavaTask();
-            this.extra1 = true;
-        }
-        if(remainingTime == 22 && this.extra1){
-            this.extra1 = false;
-            this.modal2.classList.remove('active');
-        }
-
-        if(remainingTime == 20 && !this.extra){
-            this.extra = true
-            this.extraTask();
-        }
-        if(remainingTime == 10 && this.extra){
-            this.extra = false;
-            this.modal2.classList.remove('active');
-        }
-        if(remainingTime % 5 == 0){
-            
-        }
         
+        if(remainingTime < 41 && remainingTime%10==0 && remainingTime>1){
+            console.log(this.extra)
+            if(!this.extra){
+                this.manageReziser(remainingTime);    
+            }
+        }
+        if(remainingTime < 36 && (remainingTime%5==0 && remainingTime%10!=0)){
+            console.log(this.extra);
+            if(this.extra){
+                this.modal2.classList.remove('active');
+                this.extra = false;
+            }
+
+        }
     }
     update(dt, t){
-        this.updateTasks();
         if(this.playing) this.updateTime(t);
-        
-        console.log(this.placingTasks);
     }
 
 }
