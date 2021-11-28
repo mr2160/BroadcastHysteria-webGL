@@ -49,7 +49,7 @@ export class PotekIgre {
                 this.stands.push(node);
                 this.placingTasks.push(false);
                 var taskString = node.ime + ": " + node.target
-                this.pinNewTask(taskString, this.tasks, node.target)
+                this.pinNewTask(taskString, this.tasks, node.ime)
             }
         });
         this.scene.nodes.forEach(node => {
@@ -68,17 +68,17 @@ export class PotekIgre {
         for (let i = 0; i < this.stands.length; i++){
             if(!this.stands[i].placedObject){
                 this.placingTasks[i] = false;
-                let taskLi = document.getElementById(this.stands[i].target);
+                let taskLi = document.getElementById(this.stands[i].ime);
                 taskLi.style.color = "red";
                 continue
             }
             if(this.stands[i].target == this.stands[i].placedObject.ime){
                 this.placingTasks[i] = true;
-                let taskLi = document.getElementById(this.stands[i].target);
+                let taskLi = document.getElementById(this.stands[i].ime);
                 taskLi.style.color = "green";
             }else{
                 this.placingTasks[i] = false;
-                let taskLi = document.getElementById(this.stands[i].target);
+                let taskLi = document.getElementById(this.stands[i].ime);
                 taskLi.style.color = "red";
             }
         }
@@ -130,8 +130,8 @@ export class PotekIgre {
         let target1 = this.stands[i].target;
         let target2 = this.stands[j].target;
     
-        var taskLi1 = document.getElementById(target1);
-        var taskLi2 = document.getElementById(target2);
+        var taskLi1 = document.getElementById(this.stands[i].ime);
+        var taskLi2 = document.getElementById(this.stands[j].ime);
         
         this.stands[i].target = target2;
         this.stands[j].target = target1;
@@ -173,7 +173,7 @@ export class PotekIgre {
         this.grafikaDiv.style.display = "flex";
         this.blocker.style.display = "none";
         this.startTime = Date.now();
-        this.endTime = this.startTime + (60*1000);
+        this.endTime = this.startTime + (55*1000);
         this.playing = true;
     }
 
