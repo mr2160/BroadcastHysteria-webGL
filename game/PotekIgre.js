@@ -185,7 +185,7 @@ export class PotekIgre {
         if(this.checkTasks()){
             this.ending1.style.backgroundColor = "green"
             this.ending2.style.backgroundColor = "darkgreen"
-            this.ending2.innerHTML = "You have escaped Klemens wrath, today..."
+            this.ending2.innerHTML = "Izognil si se reziserjevi jezi, zaenkrat..."
             this.ending2.style.left = "30%";
         }
         this.ending.style.display = "block";
@@ -225,7 +225,7 @@ export class PotekIgre {
         var sat = 100 - remainingTime;
         var val = 60 + remainingTime;
         var hsl = "hsl(0, "+ sat + "%, "+ val +"%)"
-        this.demo.innerHTML = "Stream starts in: " + remainingTime;
+        this.demo.innerHTML = "Prenos se začne čez: " + remainingTime;
         this.demo.style.backgroundColor = hsl;
         
         if(remainingTime < 41 && remainingTime%10==0 && remainingTime>1){
