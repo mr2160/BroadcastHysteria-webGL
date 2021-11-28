@@ -34,7 +34,7 @@ export class Stand extends Node {
         if(!this.placedObject){
             return object
         }
-        this.placedObject.rendered = false;        
+        this.placedObject.rendered = false;       
         return this.placedObject;
     }
 

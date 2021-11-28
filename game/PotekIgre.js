@@ -26,6 +26,7 @@ export class PotekIgre {
         this.stands = [];
         this.placingTasks = [];
         this.interactables = [];
+        this.kavomat = null
 
         this.startTime = null;
         this.endTime = null;
@@ -33,6 +34,7 @@ export class PotekIgre {
         this.playing = false;
         this.score = 0;
         this.extra = false;
+        this.extra1 = false;
         this.prepareTasks();
         
         var object = this;
@@ -51,8 +53,12 @@ export class PotekIgre {
         });
         this.scene.nodes.forEach(node => {
             if(node instanceof Interactable && node.textureSwitch){
-                this.interactables.push(node);
-                this.pinNewTask(node.ime, this.tasks, node.ime)
+                if(!(node.ime=="Kavomat")){
+                    this.interactables.push(node);
+                    this.pinNewTask(node.ime, this.tasks, node.ime)
+                }else{
+                    this.kavomat = node;
+                }
             }
         });
     }
@@ -66,7 +72,6 @@ export class PotekIgre {
                 continue
             }
             if(this.stands[i].target == this.stands[i].placedObject.ime){
-                
                 this.placingTasks[i] = true;
                 let taskLi = document.getElementById(this.stands[i].target);
                 taskLi.style.color = "green";
@@ -98,6 +103,14 @@ export class PotekIgre {
 
     }
 
+    kavaTask(){
+        this.interactables.push(this.kavomat);
+        this.pinNewTask("Kava", this.tasks, this.kavomat.ime);
+        var sporocilo = "Hmmm, kaj pa coffee break? ... Zame."
+        this.tasks2.innerHTML = sporocilo;
+        this.modal2.classList.add('active');
+    }
+
     extraTask(){
         let i = Math.floor(Math.random()*this.stands.length);
         let j = Math.floor(Math.random()*(this.stands.length-1));
@@ -114,6 +127,7 @@ export class PotekIgre {
     }
 
     checkTasks(){
+        
         for(let i = 0; i < this.placingTasks.length; i++){
             if(!this.placingTasks[i]){
                 return false
@@ -136,13 +150,6 @@ export class PotekIgre {
         newTask.style.color = "red";
         element.appendChild(newTask);
     }
-
-
-
-    //updateScore() {
-    //    var score = document.getElementById("score");
-    //    score.innerText = "SCORE: " + this.score;
-    //}
 
     startGame(){
         this.grafikaDiv.style.display = "flex";
@@ -186,6 +193,16 @@ export class PotekIgre {
         var hsl = "hsl(0, "+ sat + "%, "+ val +"%)"
         this.demo.innerHTML = "Stream starts in: " + remainingTime;
         this.demo.style.backgroundColor = hsl;
+
+        if(remainingTime == 30 && !this.extra1){
+            this.kavaTask();
+            this.extra1 = true;
+        }
+        if(remainingTime == 22 && this.extra1){
+            this.extra1 = false;
+            this.modal2.classList.remove('active');
+        }
+
         if(remainingTime == 20 && !this.extra){
             this.extra = true
             this.extraTask();
@@ -194,62 +211,16 @@ export class PotekIgre {
             this.extra = false;
             this.modal2.classList.remove('active');
         }
+        if(remainingTime % 5 == 0){
+            
+        }
         
     }
     update(dt, t){
         this.updateTasks();
         if(this.playing) this.updateTime(t);
         
-
+        console.log(this.placingTasks);
     }
 
 }
-
-
-//clearInterval(interval);
-//clearInterval(interval2);
-
-
-// countdown() {
-//     if(start == false) {
-//         var seconds = 10;
-//         var demo = document.getElementById("demo");
-//         start = true;
-//         // Update the count down every 1 second
-//         // Update the count down every 1 second
-//         var x = setInterval(function () {
-
-//             // Display the result in the element with id="demo"
-//             demo.innerHTML = "Stream starts in: " + seconds;
-//             demo.style.backgroundColor = "white";
-//             // If the count down is finished, write some text
-//             if (seconds < 0) {
-
-//                 if(!checker(predZacetkom)){
-//                     demo.innerHTML = "GAME OVEER!";
-//                     demo.style.backgroundColor = "red";
-//                     demo.style.color = "white";
-//                     endgame();
-//                     clearInterval(x);
-//                 }
-//                 else {
-//                     demo.innerHTML = "You win, congratulations!";
-//                     demo.style.backgroundColor = "red";
-//                     demo.style.color = "white";
-//                     clearInterval(x);
-//                 }
-
-
-
-//             }
-//             seconds = seconds - 1;
-//         }, 1000);
-//     }
-// }
-
-// this.predZacetkom = [false, false, false];
-//         this.task1 = document.getElementById("ena");
-//         this.task2 = document.getElementById("dva");
-//         this.task3 = document.getElementById("tri");
-//         this.checker = arr => arr.every(Boolean);
-//         //this.x = setInterval(randTask, 15000)
