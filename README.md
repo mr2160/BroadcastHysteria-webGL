@@ -1,4 +1,4 @@
 # BroadcastHysteria-webGL
-Domača naloga za predmet Računalniška grafika in tehnologija iger.
+Homework assignment for the subject Computer Graphics and Game Technology
 
-Spletna igra, ki simulira dogajanje v studiu pred začetkom prenosa.
+A web game that simulates what goes on in a TV studio before the start of a broadcast.
